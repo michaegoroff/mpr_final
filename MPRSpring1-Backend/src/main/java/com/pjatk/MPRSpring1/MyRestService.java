@@ -45,16 +45,22 @@ public class MyRestService {
         Iterable<Cat> cats = this.repository.findAll();
         List<Cat> catsList = new ArrayList<>();
         cats.forEach(catsList::add);
-        catsList.removeIf(cat -> !cat.getName().equals(sequence));
+        catsList.removeIf(cat -> !cat.getName().contains(sequence));
         return catsList;
     }
 
     public void addCat(Cat cat){
-            this.repository.save(cat);
+        this.repository.save(cat);
     }
 
     public void deleteCat(Long id){
-        this.repository.deleteById(id);
+        Optional<Cat> optionalCat = this.repository.findById(id);
+        if(optionalCat.isPresent()){
+            this.repository.deleteById(id);
+        }
+        else{
+            throw new CatNotFoundException();
+        }
     }
 
     public void updateCat(Long id,Cat newcat){

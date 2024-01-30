@@ -14,11 +14,11 @@
             <th>Color</th>
         </thead>
         <tbody>
-            <tr th:each="cat : ${cats}">
-                <td th:text="${cat.catID}"></td>
-                <td th:text="${cat.name}"></td>
-                <td th:text="${cat.age}"></td>
-                <td th:text="${cat.color}"></td>
+            <tr id="record" th:each="cat : ${cats}">
+                <td id="id" th:text="${cat.catID}"></td>
+                <td id="name" th:text="${cat.name}"></td>
+                <td id="age" th:text="${cat.age}"></td>
+                <td id="color" th:text="${cat.color}"></td>
                 <td>
                     <a th:href="@{'/updateCat/' + ${cat.catID}}">Edit</a>
                     <a th:href="@{'/deleteCat/' + ${cat.catID}}">Delete</a>

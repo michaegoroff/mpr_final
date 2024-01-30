@@ -1,6 +1,7 @@
 package com.pjatk.MPRSpring1;
 
 import org.hibernate.annotations.AttributeAccessor;
+import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
